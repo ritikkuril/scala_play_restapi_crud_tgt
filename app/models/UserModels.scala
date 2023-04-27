@@ -104,11 +104,11 @@ class UserDao @Inject()(db: Database) {
       }
     }
 
-  def delete(id: Int): Unit = {
+  def delete(cid:String ,eid:String): Unit = {
     val conn = db.getConnection()
     try {
       val stmt = conn.createStatement()
-      stmt.executeUpdate(s"DELETE FROM emp WHERE id=$id")
+      stmt.executeUpdate(s"DELETE FROM emp WHERE company_id='${cid}' and employee_id = '${eid}'")
     } finally {
       conn.close()
     }

@@ -34,11 +34,6 @@ class RestController @Inject()(cc: ControllerComponents, userDao: UserDao) exten
 
 
 
-
-
-
-
-
  def create(cid:String,eid:String,details:String): Action[AnyContent] = Action  { implicit request =>
 
    userDao.create(cid,eid,details)
@@ -50,8 +45,8 @@ class RestController @Inject()(cc: ControllerComponents, userDao: UserDao) exten
      Ok("updated")
    }
 
-  def delete(id: Int): Action[AnyContent] = Action { implicit request =>
-    userDao.delete(id)
+  def delete(cid: String,eid:String): Action[AnyContent] = Action { implicit request =>
+    userDao.delete(cid,eid)
     Ok("Deleted")
   }
 

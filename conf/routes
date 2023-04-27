@@ -11,7 +11,7 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 
 
 
-DELETE  /del/:id          controllers.RestController.delete(id: Int)
+DELETE  /del/:cid/:eid          controllers.RestController.delete(cid: String,eid:String)
 #delete
 
 
